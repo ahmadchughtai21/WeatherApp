@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}Weather Report{% endblock title %}
+
+{% block content %}
+<div class=" min-h-screen flex flex-col items-center p-6">
+  {% if not message %}
+  <div class="{% if is_day == 1 %}bg-white text-gray-900{% else %}bg-gray-900 text-gray-200{% endif %} w-full max-w-lg bg-opacity-80 rounded-lg shadow-lg p-8 mt-4">
+    <div class="flex flex-col items-center">
+      <img class="w-32 h-32 mb-4" src="{{ icon }}" alt="Weather Icon" />
+      <h2 class="text-3xl font-bold mb-4">
+        {{ description }}
+      </h2>
+      <div class="text-center">
+        <h3 class="text-xl font-semibold">
+          City: <span class="font-normal">{{ city }}</span>
+        </h3>
+        <h3 class="text-xl font-semibold">
+          Region: <span class="font-normal">{{ region }}</span>
+        </h3>
+        <h3 class="text-xl font-semibold">
+          Country: <span class="font-normal">{{ country }}</span>
+        </h3>
+        <div class="grid grid-cols-2 gap-4 mt-6">
+            <div>
+            <h3 class="text-xl font-semibold">Temperature</h3>
+            <p class="text-sm font-normal">Celsius: {{ temp_c }}°C</p>
+            <p class="text-sm font-normal">Fahrenheit: {{ temp_f }}°F</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold">Feels Like</h3>
+            <p class="text-sm font-normal">Celsius: {{ feelslike_c }}°C</p>
+            <p class="text-sm font-normal">Fahrenheit: {{ feelslike_f }}°F</p>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+   <span class="font-normal pt-2">Last Updated: {{ last_updated }}</span>
+  {% endif %}
+  {% if message %}
+  <div class="flex flex-col items-center pt-52">
+    <h2 class="text-xl font-bold">{{ message }}</h2>
+  </div>
+  {% endif %}
+  <a href="{% url 'home' %}">
+      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mt-4 rounded">
+          Back to Home
+      </button>
+  </a>
+</div>
+
+{% endblock content %}
