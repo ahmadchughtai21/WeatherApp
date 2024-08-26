@@ -49,3 +49,9 @@ Visit [http://127.0.0.1:8000/](http://127.0.0.1:8000/) in your web browser.
 
 - Upon submission, the app will display the current weather data for the specified city.
 - If the city name is invalid or not found, an error message will be displayed.
+
+
+### Screenshots
+![Screenshot_26-8-2024_13270_127 0 0 1](https://github.com/user-attachments/assets/cbcb1d8c-4d61-431b-ad5b-f945e2298974)
+![Screenshot_26-8-2024_132732_127 0 0 1](https://github.com/user-attachments/assets/0c244d49-a537-4aea-b96c-65297c5cac74)
+![Screenshot_26-8-2024_13280_127 0 0 1](https://github.com/user-attachments/assets/320018ac-f024-4ed9-8a11-aed5cedb629b)
