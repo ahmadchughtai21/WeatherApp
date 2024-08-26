@@ -1,14 +1,27 @@
 {% extends "base.html" %}
+{% load static %}
 {% block title %}Home{% endblock title %}
 
 {% block content %}
-<div class= 'flex flex-col w-full mx-auto py-40 items-center h-20'>
-<form action='{% url "report" %}' method="post" class="flex flex-col items-center">
-    {% csrf_token %}
-    <label class="text-white" for="City">Enter City Name:</label>
-    <br>
-    <input class="border border-gray-600 rounded-md py-2 p-4 w-96 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-800" default:"city" type="text" id="city" name="city" required>
-    <button class="mt-8 bg-blue-800 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded">Submit</button>
-</form>
+<div class="min-h-screen flex items-center justify-center p-8"
+     style="background-image: url('{% if is_day == '1' %}{% static "img/light.png" %}{% else %}{% static "img/dark.png" %}{% endif %}'); background-size: cover; background-position: center;">
+  
+  <div class="w-full max-w-md bg-white bg-opacity-50 backdrop-filter backdrop-blur-lg rounded-lg shadow-lg p-8">
+    <h1 class="text-2xl font-bold text-gray-800 text-center mb-6">Weather Report</h1>
+    <form action="{% url 'report' %}" method="post" class="flex flex-col space-y-6">
+      {% csrf_token %}
+      <div class="flex flex-col">
+        <label for="city" class="text-gray-700 font-medium mb-2 text-center">Enter City Name</label>
+        <input type="text" id="city" name="city" required
+               class="w-full text-center px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-800"
+               placeholder="New York">
+      </div>
+      <button type="submit"
+              class="w-full py-2 rounded-full bg-blue-600 text-white font-semibold hover:bg-blue-700 transition duration-300">
+        Get Report
+      </button>
+    </form>
+  </div>
+  
 </div>
 {% endblock content %}

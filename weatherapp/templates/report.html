@@ -1,53 +1,58 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block title %}Weather Report{% endblock title %}
 
 {% block content %}
-<div class=" min-h-screen flex flex-col items-center p-6">
+<div class="min-h-screen flex flex-col items-center justify-center p-8"
+     style="background-image: url('{% if is_day == 1 %}{% static "img/light.png" %}{% else %}{% static "img/dark.png" %}{% endif %}'); background-size: cover; background-position: center;">
+  
   {% if not message %}
-  <div class="{% if is_day == 1 %}bg-white text-gray-900{% else %}bg-gray-900 text-gray-200{% endif %} w-full max-w-lg bg-opacity-80 rounded-lg shadow-lg p-8 mt-4">
+  <div class="w-full max-w-md rounded-lg shadow-lg p-8 mt-4 bg-white bg-opacity-30 backdrop-filter backdrop-blur-lg">
     <div class="flex flex-col items-center">
-      <img class="w-32 h-32 mb-4" src="{{ icon }}" alt="Weather Icon" />
-      <h2 class="text-3xl font-bold mb-4">
+      <img class="w-24 h-24 mb-4" src="{{ icon }}" alt="Weather Icon" />
+      <h2 class="text-2xl font-bold mb-4 text-center text-gray-800">
         {{ description }}
       </h2>
-      <div class="text-center">
-        <h3 class="text-xl font-semibold">
+      <div class="text-center space-y-2">
+        <h3 class="text-lg font-semibold text-gray-900">
           City: <span class="font-normal">{{ city }}</span>
         </h3>
-        <h3 class="text-xl font-semibold">
+        <h3 class="text-lg font-semibold text-gray-900">
           Region: <span class="font-normal">{{ region }}</span>
         </h3>
-        <h3 class="text-xl font-semibold">
+        <h3 class="text-lg font-semibold text-gray-900">
           Country: <span class="font-normal">{{ country }}</span>
         </h3>
-        <div class="grid grid-cols-2 gap-4 mt-6">
-            <div>
-            <h3 class="text-xl font-semibold">Temperature</h3>
-            <p class="text-sm font-normal">Celsius: {{ temp_c }}°C</p>
-            <p class="text-sm font-normal">Fahrenheit: {{ temp_f }}°F</p>
-          </div>
-          <div>
-            <h3 class="text-xl font-semibold">Feels Like</h3>
-            <p class="text-sm font-normal">Celsius: {{ feelslike_c }}°C</p>
-            <p class="text-sm font-normal">Fahrenheit: {{ feelslike_f }}°F</p>
-          </div>
+      </div>
+      <div class="grid grid-cols-2 gap-6 mt-6 w-full">
+        <div class="text-center">
+          <h3 class="text-lg font-semibold text-gray-700">Temperature</h3>
+          <p class="text-sm text-gray-800">Celsius: {{ temp_c }}°C</p>
+          <p class="text-sm text-gray-800">Fahrenheit: {{ temp_f }}°F</p>
+        </div>
+        <div class="text-center">
+          <h3 class="text-lg font-semibold text-gray-700">Feels Like</h3>
+          <p class="text-sm text-gray-800">Celsius: {{ feelslike_c }}°C</p>
+          <p class="text-sm text-gray-800">Fahrenheit: {{ feelslike_f }}°F</p>
         </div>
       </div>
     </div>
-</div>
-   <span class="font-normal pt-2">Last Updated: {{ last_updated }}</span>
+    <div class="text-center mt-6 text-gray-700 text-sm">
+      <span>Last Updated: {{ last_updated }}</span>
+    </div>
+  </div>
   {% endif %}
+  
   {% if message %}
-  <div class="flex flex-col items-center pt-52">
+  <div class="flex flex-col items-center justify-center pt-20 text-center text-red-500">
     <h2 class="text-xl font-bold">{{ message }}</h2>
   </div>
   {% endif %}
-  <a href="{% url 'home' %}">
-      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mt-4 rounded">
-          Back to Home
-      </button>
+
+  <a href="{% url 'home' %}" class="mt-8">
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-full transition duration-300 ease-in-out">
+      Back to Home
+    </button>
   </a>
 </div>
-
 {% endblock content %}

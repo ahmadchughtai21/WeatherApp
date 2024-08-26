@@ -8,13 +8,7 @@
     {% tailwind_css %}
     <title>{% block title %}Default Title{% endblock title %}</title>
 </head>
-<header class="bg-gray-950 text-gray-200 font-mono">
-    <div class="flex flex-col items-center p-8">
-        <h1 class="text-4xl">
-            <a href="{% url 'home' %}">Weather App</a>
-        </h1>
-    </div>
-</header>
+
 <body>
     <div class="bg-gray-950 text-gray-200 font-mono min-h-screen">
     {% block content %}
