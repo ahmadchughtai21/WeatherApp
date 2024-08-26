@@ -56,6 +56,7 @@ Visit [http://127.0.0.1:8000/](http://127.0.0.1:8000/) in your web browser.
 
 
 ### Screenshots
-![Screenshot_26-8-2024_13270_127 0 0 1](https://github.com/user-attachments/assets/cbcb1d8c-4d61-431b-ad5b-f945e2298974)
-![Screenshot_26-8-2024_132732_127 0 0 1](https://github.com/user-attachments/assets/0c244d49-a537-4aea-b96c-65297c5cac74)
-![Screenshot_26-8-2024_13280_127 0 0 1](https://github.com/user-attachments/assets/320018ac-f024-4ed9-8a11-aed5cedb629b)
+![Screenshot_26-8-2024_233316_127 0 0 1](https://github.com/user-attachments/assets/88b54d89-e72e-47bc-ae3e-d49e62dac035)
+![Screenshot_26-8-2024_233338_127 0 0 1](https://github.com/user-attachments/assets/b35d51c3-f3ec-419d-bef4-86b70b62902a)
+![Screenshot_26-8-2024_233359_127 0 0 1](https://github.com/user-attachments/assets/1b4ebc88-0f00-4302-a1e9-4a0012009a68)
+
