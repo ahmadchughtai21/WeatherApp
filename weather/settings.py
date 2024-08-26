@@ -139,3 +139,8 @@ INTERNAL_IPS = ['127.0.0.1']
 NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"
 
 # STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://weatherapp-production-8302.up.railway.app',
+    'https://www.weatherapp-production-8302.up.railway.app',
+]
