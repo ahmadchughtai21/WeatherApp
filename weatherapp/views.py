@@ -2,7 +2,7 @@ from django.shortcuts import render
 import requests
 import json
 
-api ="YOUR_API_KEY"
+api ="ae40d4643e31498f87c84011241508" #Your API KEY here
 
 
 # Create your views here.
