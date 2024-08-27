@@ -4,7 +4,12 @@
 
 {% block content %}
 <div class="min-h-screen flex flex-col items-center justify-center p-8"
-     style="background-image: url('{% if is_day == 1 %}{% static "img/light.png" %}{% else %}{% static "img/dark.png" %}{% endif %}'); background-size: cover; background-position: center;">
+style="background: {% if is_day == 1 %}
+linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(29,185,253,1) 51%, rgba(240,179,93,1) 100%)
+{% else %}
+background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(45,152,199,1) 51%, rgba(240,179,93,1) 100%);
+{% endif %}
+;">
   
   {% if not message %}
   <div class="w-full max-w-md rounded-lg shadow-lg p-8 mt-4 bg-white bg-opacity-30 backdrop-filter backdrop-blur-lg">
