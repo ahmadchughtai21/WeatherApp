@@ -1,63 +1,68 @@
 {% extends "base.html" %}
 {% load static %}
+
 {% block title %}Weather Report{% endblock title %}
 
 {% block content %}
 <div class="min-h-screen flex flex-col items-center justify-center p-8"
-style="background: {% if is_day == 1 %}
-linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(135,206,250,1) 50%, rgba(240,178,122,1) 100%);
-{% else %}
-linear-gradient(135deg, rgba(25,25,112,1) 0%, rgba(29,185,253,1) 50%, rgba(178,102,255,1) 100%);
-{% endif %}">
+  style="background: {% if is_day == 1 %}
+       linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(135,206,250,1) 50%, rgba(240,178,122,1) 100%);
+       {% else %}
+       linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 139, 0.6) 50%, rgba(0, 0, 139, 0.4) 100%);
+       {% endif %}">
 
-  
-  {% if not message %}
-  <div class="w-full max-w-md rounded-lg shadow-lg p-8 mt-4 bg-white bg-opacity-30 backdrop-filter backdrop-blur-lg">
-    <div class="flex flex-col items-center">
-      <img class="w-24 h-24 mb-4" src="{{ icon }}" alt="Weather Icon" />
-      <h2 class="text-2xl font-bold mb-4 text-center text-gray-800">
-        {{ description }}
+    {% if not message %}
+    <div class="w-full max-w-md rounded-lg shadow-lg p-8 mt-4 bg-white bg-opacity-30 backdrop-filter backdrop-blur-lg">
+     <div class="flex flex-col items-center">
+      <div class="w-24 h-24 mb-4">
+       <img class="w-full h-full" src="{{ icon }}" alt="Weather Icon" />
+      </div>
+      <h2 class="text-4xl font-bold mb-4 text-center text-gray-800">
+       {{ temp_c }}°C
       </h2>
+      <h3 class="text-2xl font-semibold mb-4 text-center text-gray-800">
+       {{ description }}
+      </h3>
       <div class="text-center space-y-2">
-        <h3 class="text-lg font-semibold text-gray-900">
-          City: <span class="font-normal">{{ city }}</span>
-        </h3>
-        <h3 class="text-lg font-semibold text-gray-900">
-          Region: <span class="font-normal">{{ region }}</span>
-        </h3>
-        <h3 class="text-lg font-semibold text-gray-900">
-          Country: <span class="font-normal">{{ country }}</span>
-        </h3>
+       <h3 class="text-lg font-semibold text-gray-900">
+        City: <span class="font-normal text-gray-800">{{ city }}</span>
+       </h3>
+       <h3 class="text-lg font-semibold text-gray-900">
+        Region: <span class="font-normal text-gray-800">{{ region }}</span>
+       </h3>
+       <h3 class="text-lg font-semibold text-gray-900">
+        Country: <span class="font-normal text-gray-800">{{ country }}</span>
+       </h3>
       </div>
       <div class="grid grid-cols-2 gap-6 mt-6 w-full">
-        <div class="text-center">
-          <h3 class="text-lg font-semibold text-gray-700">Temperature</h3>
-          <p class="text-sm text-gray-800">Celsius: {{ temp_c }}°C</p>
-          <p class="text-sm text-gray-800">Fahrenheit: {{ temp_f }}°F</p>
-        </div>
-        <div class="text-center">
-          <h3 class="text-lg font-semibold text-gray-700">Feels Like</h3>
-          <p class="text-sm text-gray-800">Celsius: {{ feelslike_c }}°C</p>
-          <p class="text-sm text-gray-800">Fahrenheit: {{ feelslike_f }}°F</p>
-        </div>
+       <div class="text-center">
+        <h3 class="text-lg font-semibold text-gray-900">Temperature</h3>
+        <p class="text-3xl font-bold text-gray-900">{{ temp_c }}°C</p>
+        <p class="text-sm text-gray-900">Fahrenheit: {{ temp_f }}°F</p>
+       </div>
+       <div class="text-center">
+        <h3 class="text-lg font-semibold text-gray-900">Feels Like</h3>
+        <p class="text-3xl font-bold text-gray-900">{{ feelslike_c }}°C</p>
+        <p class="text-sm text-gray-900">Fahrenheit: {{ feelslike_f }}°F</p>
+       </div>
       </div>
+      <div class="text-center mt-6 text-gray-800 text-sm">
+       <span>Last Updated: {{ last_updated }}</span>
+      </div>
+     </div>
     </div>
-    <div class="text-center mt-6 text-gray-700 text-sm">
-      <span>Last Updated: {{ last_updated }}</span>
-    </div>
-  </div>
-  {% endif %}
-  
-  {% if message %}
-  <div class="flex flex-col items-center justify-center pt-20 text-center text-red-500">
-    <h2 class="text-xl font-bold">{{ message }}</h2>
-  </div>
-  {% endif %}
+    {% endif %}
 
-  <a href="{% url 'home' %}" class="mt-8">
-    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-full transition duration-300 ease-in-out">
+    {% if message %}
+    <div class="flex flex-col items-center justify-center pt-20 text-center text-red-500">
+     <h2 class="text-xl font-bold">{{ message }}</h2>
+    </div>
+    {% endif %}
+
+    <a href="{% url 'home' %}" class="mt-8">
+     <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-full transition duration-300 ease-in-out">
       Back to Home
-    </button>
-  </a>
+     </button>
+    </a>
 </div>
 {% endblock content %}
