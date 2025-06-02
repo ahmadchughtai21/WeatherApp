@@ -2,9 +2,6 @@
 
 A simple Django application that fetches and displays weather information based on user input. This app uses the WeatherAPI to retrieve current weather data for a specified city.
 
-## Test the App Here
-https://weatherapp-production-2ff9.up.railway.app/
-(Demo Server is slower than the Actual App)
 
 ## Features
 
